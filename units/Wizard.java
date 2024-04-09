@@ -6,8 +6,8 @@ public class Wizard extends Person {
     private int healPrice;
     private int attackPrice;
 
-    public Wizard(String name, int age) {
-        super(name, 80, 30, age, 5, 30, "Stick", 30);
+    public Wizard(String name, int x, int y) {
+        super(name, 80, 30,5, 30, "Stick", 30, "Маг", x, y);
         this.mana = 10;
         this.healPrice = 2;
         this.attackPrice = 1;
