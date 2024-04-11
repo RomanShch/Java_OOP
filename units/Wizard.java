@@ -1,5 +1,7 @@
 package units;
 
+import java.util.ArrayList;
+
 public class Wizard extends Person {
     private int mana;
     private int healVal;
@@ -7,7 +9,7 @@ public class Wizard extends Person {
     private int attackPrice;
 
     public Wizard(String name, int x, int y) {
-        super(name, 80, 30,5, 30, "Stick", 30, "Маг", x, y);
+        super(name, 80, 30,5, 30, "Stick", 30, "Маг", x, y, 1);
         this.mana = 10;
         this.healPrice = 2;
         this.attackPrice = 1;
@@ -34,5 +36,12 @@ public class Wizard extends Person {
         else if (action == "attack")
             return attackPrice;
         return 0;
+    }
+
+    
+
+    @Override
+    public void step(ArrayList<Person> enemis, ArrayList<Person> friends) {
+
     }
 }

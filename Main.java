@@ -3,7 +3,10 @@ import  java.util.Random;
 import units.*;
 
 public class Main {
+    public static ArrayList<Person> hollyTeam;
 
+    public static ArrayList<Person> darkTeam;
+    static ArrayList<Person> all = new ArrayList<>();
     public static void main(String[] args) {
         // Robber robber = new Robber("Andrey", 20);
         // Peasant peasant = new Peasant("Anton", 20);
@@ -22,19 +25,46 @@ public class Main {
         // System.out.println(monk);
         hollyTeam = teamCreator(0, 0);
         darkTeam = teamCreator(0, 3);
-        System.out.println(hollyTeam);
-        System.out.println();
-        System.out.println(darkTeam);
-        Sniper sniper = new Sniper(getName(), 0, 5);
-        Person target = sniper.findNearestEnemy(darkTeam);
-        System.out.println(" Nearest target is " + target);
+
+        all.addAll(hollyTeam);
+        all.addAll(darkTeam);
+        // System.out.println(all);
+
+        all.sort((o1, o2) -> Integer.compare(o2.priority, o1.priority));
+        // System.out.println(all);
+
+
+       
+
+
+            for (Person p : all) {
+                    System.out.println(p + " ходит. ");
+                if (darkTeam.contains(p)) {
+              
+                    p.step(hollyTeam, darkTeam);
+                  } 
+                    else {
+                    p.step(darkTeam, hollyTeam);
+                  }
+                //   System.out.println();
+                }
+                
+                
+                
+        // System.out.println(hollyTeam);
+        // System.out.println();
+        // System.out.println(darkTeam);
+        // Sniper sniper = new Sniper(getName(), 3, 6);
+        // Person target = sniper.findNearestEnemy(darkTeam);
+        // System.out.println(" Nearest target is " + target);
+        // sniper.step(hollyTeam);
+        // System.out.println("Снайпер атакует");
+    
         
 
     }
 
-    public static ArrayList<Person> hollyTeam;
-
-    public static ArrayList<Person> darkTeam;
+    
 
     public static ArrayList<Person> teamCreator(int val, int num){
         ArrayList<Person> team = new ArrayList<Person>();
